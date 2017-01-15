@@ -1,4 +1,11 @@
-stage 'test and build' 
+stage ('Stage 1. checkout repo')
+
+node ('docker') {
+        git 'https://github.com/iambowen/microservices-training-lesson-7-testing-pact.git'
+    }
+}
+
+stage 'Stage 2. test and build' 
 parallel ( 
 'unit test' : {
     node  { sh './event-service/auto/unit_test.sh' }
@@ -11,14 +18,14 @@ parallel (
 }
 )
 
-stage "deploy to e2e and integration test" 
+stage "Stage 3. deploy to e2e and integration test" 
     node  { sh 'echo deploy to e2e env' }
     node  { sh 'echo run e2e/integration tests' }
 
-stage 'staging deployment'
+stage 'Stage 4. staging deployment'
     node  { sh 'echo deploy to staging' }
     node  { sh 'echo run performance tests'}
 
-stage 'production deployment'
-    node  { 'echo deploy to production' }
-    node  { 'echo run smoke tests' }
+stage 'Stage 5. production deployment'
+    node  { sh 'echo deploy to production' }
+    node  { sh 'echo run smoke tests' }
