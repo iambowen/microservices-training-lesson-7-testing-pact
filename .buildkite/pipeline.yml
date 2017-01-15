@@ -1,0 +1,21 @@
+steps:
+  - name: Run Unit Tests
+    command: 'event-service/auto/unit_test.sh'
+    agents:
+      queue: docker
+
+  - name: Deploy to staging
+    branches: "master"
+    command:  'event-service/auto/fake.sh'
+    agents:
+      queue: docker
+    concurrency: 1
+
+  - wait
+
+  - name: Deploy to Prod
+    branches: "master"
+    command:  'event-service/auto/fake.sh'
+    agents:
+      queue: docker
+    concurrency: 1
