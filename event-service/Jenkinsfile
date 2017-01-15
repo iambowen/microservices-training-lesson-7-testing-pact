@@ -1,7 +1,7 @@
 stage 'test and build' 
 parallel ( 
 'unit test' : {
-    node  { sh 'echo unit tests' }
+    node  { sh './event-service/auto/unit_test.sh' }
 }, 
 "pact tests" : {
     node  { sh 'echo pact tests' }
