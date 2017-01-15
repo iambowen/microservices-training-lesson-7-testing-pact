@@ -1,24 +1,24 @@
-stage 'test and build'
-
-parallel 'unit test' : {
-    node 'docker' { sh 'echo unit tests' }
-}, "pact tests" : {
-    node 'docker' { sh 'echo pact tests' }
-}, "build image" : {
-    node 'docker' { sh 'echo build docker image' }    
+stage 'test and build' 
+parallel ( 
+'unit test' : {
+    node  { sh 'echo unit tests' }
+}, 
+"pact tests" : {
+    node  { sh 'echo pact tests' }
+}, 
+"build image" : {
+    node  { sh 'echo build docker image' }    
 }
+)
 
-stage "deploy to e2e and integration test" : {
-    node 'docker' { sh 'echo deploy to e2e env' }
-    node 'docker' { sh 'echo run e2e/integration tests' }
-}
+stage "deploy to e2e and integration test" 
+    node  { sh 'echo deploy to e2e env' }
+    node  { sh 'echo run e2e/integration tests' }
 
-stage 'staging deployment': {
-    node 'docker' { sh 'echo deploy to staging' }
-    node 'docker' { sh 'echo run performance tests'}
-}
+stage 'staging deployment'
+    node  { sh 'echo deploy to staging' }
+    node  { sh 'echo run performance tests'}
 
-stage 'production deployment': {
-    node 'docker' { 'echo deploy to production' }
-    node 'docker' { 'echo run smoke tests' }
-}
+stage 'production deployment'
+    node  { 'echo deploy to production' }
+    node  { 'echo run smoke tests' }
