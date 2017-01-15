@@ -2,7 +2,6 @@ stage ('Stage 1. checkout repo')
 
 node ('docker') {
         git 'https://github.com/iambowen/microservices-training-lesson-7-testing-pact.git'
-    }
 }
 
 stage 'Stage 2. test and build' 
