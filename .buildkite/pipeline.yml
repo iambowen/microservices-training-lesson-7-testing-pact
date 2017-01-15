@@ -3,19 +3,19 @@ steps:
     command: 'event-service/auto/unit_test.sh'
     agents:
       queue: docker
+  
+  - wait
 
   - name: Deploy to staging
     branches: "master"
     command:  'event-service/auto/fake.sh'
     agents:
       queue: docker
-    concurrency: 1
 
-  - wait
+  - block
 
   - name: Deploy to Prod
     branches: "master"
     command:  'event-service/auto/fake.sh'
     agents:
       queue: docker
-    concurrency: 1
