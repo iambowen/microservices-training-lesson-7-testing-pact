@@ -5,6 +5,7 @@ node ('docker') {
 }
 
 stage 'Stage 2. test and build' 
+
 parallel ( 
 'unit test' : {
     node ('docker') { sh './event-service/auto/unit_test.sh' }
@@ -24,6 +25,8 @@ stage "Stage 3. deploy to e2e and integration test"
 stage 'Stage 4. staging deployment'
     node ('docker')  { sh 'echo deploy to staging' }
     node ('docker')  { sh 'echo run performance tests'}
+
+input message: "Does staging look good?"
 
 stage 'Stage 5. production deployment'
     node ('docker')  { sh 'echo deploy to production' }
