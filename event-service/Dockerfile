@@ -9,4 +9,6 @@ RUN chmod +x /usr/local/bin/wait-for-it
 ADD build/libs/event-service-0.1.0.jar /app
 RUN ln -sf event-service-0.1.0.jar event-service-latest.jar
 
-CMD java -jar app/event-service-0.1.0.jar
+ADD newrelic/ /opt/newrelic/
+
+CMD java -javaagent:/opt/newrelic/newrelic.jar -jar event-service-latest.jar
