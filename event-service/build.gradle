@@ -42,7 +42,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-data-mongodb'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile group: 'io.prometheus', name: 'simpleclient', version: '0.0.20'
-    compile group: 'io.prometheus', name: 'simpleclient_spring_boot', version: '0.0.15'
+    compile group: 'io.prometheus', name: 'simpleclient_spring_boot', version: '0.0.20'
     compile group: 'io.prometheus', name: 'simpleclient_servlet', version: '0.0.20'
     compile group: 'io.prometheus', name: 'simpleclient_hotspot', version: '0.0.20'
     // https://mvnrepository.com/artifact/io.prometheus/simpleclient_common
