@@ -41,15 +41,14 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-data-rest'
     compile 'org.springframework.boot:spring-boot-starter-data-mongodb'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile "org.springframework.cloud:spring-cloud-starter-sleuth"
+
     compile group: 'io.prometheus', name: 'simpleclient', version: '0.0.20'
     compile group: 'io.prometheus', name: 'simpleclient_spring_boot', version: '0.0.20'
     compile group: 'io.prometheus', name: 'simpleclient_servlet', version: '0.0.20'
     compile group: 'io.prometheus', name: 'simpleclient_hotspot', version: '0.0.20'
     // https://mvnrepository.com/artifact/io.prometheus/simpleclient_common
     compile group: 'io.prometheus', name: 'simpleclient_common', version: '0.0.20'
-
-    compile 'org.springframework.boot:spring-boot-starter-actuator'
-    compile 'org.springframework.cloud:spring-cloud-starter-eureka'
 }
 
 dependencyManagement {

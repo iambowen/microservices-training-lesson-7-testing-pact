@@ -4,7 +4,8 @@ eureka:
     leaseRenewalIntervalInSeconds: 5
     serviceUrl:
       defaultZone: http://localhost:8010/eureka/
-      
+    enabled: false
+
 server:
   port: ${PORT:${SERVER_PORT:9000}}   # Select any available port if neither port nor server port are specified.
 
@@ -24,7 +25,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka-server:8010/eureka/
-
+    enabled: false 
+     
 ---
 spring:
   profiles: pact-test
